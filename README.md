@@ -9,6 +9,10 @@
 | email               | string   | null: false, unique: true|
 | nickname            | string   | null: false              |
 | birthday            | string   | null: false              |
+| first_name          | string   | null: false              |
+| last_name           | string   | null: false              | 
+| first_name_kana     | string   | null: false              |
+| last_name_kana      | string   | null: false              |
 
 ### Association
 * has_many :items
@@ -19,16 +23,18 @@
 
 ##　items テーブル
 
-|Column           |Type        |Options            |
-|-----------------|------------|-------------------|
-| items_name      | string     | null: false       |
-| price           | string     | null: false       |
-| user            | references | foreign_key: true |
-| category        | integer    | null: false       |
-| condition       | integer    | null: false       |
-| postage         | integer    | null: false       |
-| shipment_area   | integer    | null: false       |
-| shipping_date   | integer    | null: false       |
+|Column              |Type        |Options            |
+|--------------------|------------|-------------------|
+| items_name         | string     | null: false       |
+| price              | string     | null: false       |
+| content            | text       | null: false       |
+| user               | references | foreign_key: true |
+| category_id        | integer    | null: false       |
+| condition_id       | integer    | null: false       |
+| postage_id         | integer    | null: false       |#送料
+| shipment_area_id   | integer    | null: false       |
+| shipping_date_id   | integer    | null: false       |
+
 
 
 
@@ -58,13 +64,13 @@
 
 |Column           |Type         |Options           |
 |-----------------|-------------|------------------|
-| postal_code     | integer     | null: false      |
-| prefecture      | integer     | null: false      |
-| city            | integer     | null: false      |
-| house_number    | integer     | null: false      |
-| building_number | integer     | null: false      |
+| postal_code     | string      | null: false      |
+| shipment_area_id| integer     | null: false      |
+| city            | integer     | null: false      |#市町村
+| house_number    | string      | null: false      |#住所
+| building_name   | string      |                  |
 | phone_number    | string      | null: false      |
 
 ### Association
-*belongs_to  :user
+
 *belongs_to  :record
