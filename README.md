@@ -7,7 +7,7 @@
 | encrypted_password  | string   | null: false              |
 | email               | string   | null: false, unique: true|
 | nickname            | string   | null: false              |
-| birthday            | string   | null: false              |
+| birthday            | date     | null: false              |
 | first_name          | string   | null: false              |
 | last_name           | string   | null: false              | 
 | first_name_kana     | string   | null: false              |
@@ -69,7 +69,7 @@
 | house_number    | string      | null: false      |#住所
 | building_name   | string      |                  |
 | phone_number    | string      | null: false      |
-| records         | references  | foreign_key: true|
+| record          | references  | foreign_key: true|
 
 ### Association
 
