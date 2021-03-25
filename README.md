@@ -4,7 +4,6 @@
 
 |Column               |Type      |Options                   |
 |---------------------|----------|--------------------------|
-| name                | string   | null: false              |
 | encrypted_password  | string   | null: false              |
 | email               | string   | null: false, unique: true|
 | nickname            | string   | null: false              |
@@ -26,7 +25,7 @@
 |Column              |Type        |Options            |
 |--------------------|------------|-------------------|
 | items_name         | string     | null: false       |
-| price              | string     | null: false       |
+| price              | integer    | null: false       |
 | content            | text       | null: false       |
 | user               | references | foreign_key: true |
 | category_id        | integer    | null: false       |
@@ -45,7 +44,7 @@
 
 
 
-## record テーブル
+## records テーブル
 
 |Column  |Type        |Options            |
 |--------|------------|-------------------|
@@ -60,16 +59,17 @@
 
 
 
-## address テーブル
+## addresses テーブル
 
 |Column           |Type         |Options           |
 |-----------------|-------------|------------------|
 | postal_code     | string      | null: false      |
 | shipment_area_id| integer     | null: false      |
-| city            | integer     | null: false      |#市町村
+| city            | string      | null: false      |#市町村
 | house_number    | string      | null: false      |#住所
 | building_name   | string      |                  |
 | phone_number    | string      | null: false      |
+| records         | references  | foreign_key: true|
 
 ### Association
 
