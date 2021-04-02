@@ -127,6 +127,16 @@ require 'rails_helper'
         @user.valid?
         expect(@user.errors.full_messages).to include('Last name kana is invalid')
       end
+      it 'ユーザの名前のフリガナは、全角（カタカナ）でないと登録できない' do
+        @user.last_kana = 'aaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include 'Last kana is invalid'
+      end
+      it 'ユーザーの名字のフリガナは、全角（カタカナ）でないと登録できない' do
+        @user.first_kana = 'aaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include 'First kana is invalid'
+      end
 
       it 'birthdayが空では登録できない' do
         @user.birthday = ''
