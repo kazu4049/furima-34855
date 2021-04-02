@@ -98,6 +98,18 @@ require 'rails_helper'
         expect(@user.errors.full_messages).to include("First name kana can't be blank")
       end
 
+      it 'ユーザー名字は、全角（漢字・ひらがな・カタカナ）でないと登録できない' do
+        @user.last_name = 'aaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include ('Last name is invalid')
+      end
+
+      it 'ユーザー名前は、全角（漢字・ひらがな・カタカナ）でないと登録できない' do
+        @user.first_name = 'aaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include ('First name is invalid')
+      end
+
       it 'first_name_kanaがカタカナではない場合登録できない' do
         @user.first_name_kana = 'たろう'
         @user.valid?
@@ -119,7 +131,7 @@ require 'rails_helper'
       it 'birthdayが空では登録できない' do
         @user.birthday = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Birth day can't be blank")
+        expect(@user.errors.full_messages).to include("Birthday can't be blank")
       end
     end
  end
