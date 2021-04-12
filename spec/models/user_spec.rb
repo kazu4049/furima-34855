@@ -1,12 +1,12 @@
 require 'rails_helper'
- RSpec.describe User, type: :model do
+RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
-   describe "ユーザー新規登録" do
+  describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
       it 'nickname、email、password、password_confirmation、first_name、last_name、first_name_kana、last_name_kana、birth_dayが存在すれば登録できる' do
-       expect(@user).to be_valid
+        expect(@user).to be_valid
       end
     end
     context '新規登録できないとき' do
@@ -15,11 +15,11 @@ require 'rails_helper'
         @user.valid?
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
-     
-      it "emailが空では登録できない" do
-       @user.email = ''
-       @user.valid?
-       expect(user.errors.full_messages).to include("Nickname can't be blank")
+
+      it 'emailが空では登録できない' do
+        @user.email = ''
+        @user.valid?
+        expect(user.errors.full_messages).to include("Nickname can't be blank")
       end
 
       it 'emailが一意性でないと登録できない' do
@@ -69,7 +69,7 @@ require 'rails_helper'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
-      
+
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password_confirmation = ''
         @user.valid?
@@ -101,13 +101,13 @@ require 'rails_helper'
       it 'ユーザー名字は、全角（漢字・ひらがな・カタカナ）でないと登録できない' do
         @user.last_name = 'aaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include ('Last name is invalid')
+        expect(@user.errors.full_messages).to include('Last name is invalid')
       end
 
       it 'ユーザー名前は、全角（漢字・ひらがな・カタカナ）でないと登録できない' do
         @user.first_name = 'aaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include ('First name is invalid')
+        expect(@user.errors.full_messages).to include('First name is invalid')
       end
 
       it 'first_name_kanaがカタカナではない場合登録できない' do
@@ -144,5 +144,5 @@ require 'rails_helper'
         expect(@user.errors.full_messages).to include("Birthday can't be blank")
       end
     end
- end
+  end
 end

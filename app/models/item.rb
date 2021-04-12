@@ -1,8 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_one :record
   has_one_attached :image
-
+  has_one :record
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :condition
@@ -14,38 +13,17 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :image
     validates :items_name
-    validates :
-    validates :
+    validates :price
+    validates :content
   end
 
   with_options numericality: { other_than: 0, message: "can't be blank" } do
-    validates :shipping_cost_id
-    validates :items_status_id
-    validates :days_to_ship_id
+    validates :condition_id
     validates :category_id
-    validates :prefecture_id
+    validates :postage_id
+    validates :shipment_area_id
+    validates :shipping_date_id
   end
 
   validates :price, numericality: true, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end

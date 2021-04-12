@@ -1,4 +1,5 @@
 FactoryBot.define do
-  factory :condition_id do
+  factory :aderess do
+    
   end
 end
