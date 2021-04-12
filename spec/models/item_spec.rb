@@ -27,7 +27,7 @@ RSpec.describe Item, type: :model do
       it 'items_nameが空では登録できないこと' do
         @item.items_name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name can't be blank")
+        expect(@item.errors.full_messages).to include("Items name can't be blank")
       end
 
       it 'priceが空では登録できないこと' do
@@ -69,25 +69,25 @@ RSpec.describe Item, type: :model do
       it 'contentが空であれば登録できないこと' do
         @item.content = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Description can't be blank")
+        expect(@item.errors.full_messages).to include("Content can't be blank")
       end
 
       it 'postage_idが空であれば登録できないこと' do
         @item.postage_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping cost can't be blank")
+        expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
 
-      it 'condition__idが空であれば登録できないこと' do
+      it 'condition_idが空であれば登録できないこと' do
         @item.condition_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Items status can't be blank")
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
 
       it 'shipping_date_idが空であれば登録できないこと' do
         @item.shipping_date_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Days to ship can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping date can't be blank")
       end
 
       it 'category_idが空であれば登録できないこと' do
@@ -99,7 +99,7 @@ RSpec.describe Item, type: :model do
       it 'shipment_area_idが空であれば登録できないこと' do
         @item.shipment_area_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@item.errors.full_messages).to include("Shipment area can't be blank")
       end
 
       it 'userテーブルと紐ついていないと登録できないこと' do
@@ -117,19 +117,19 @@ RSpec.describe Item, type: :model do
       it 'postage_idは0だと登録できない。' do
         @item.postage_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping cost can't be blank")
+        expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
 
       it 'condition_idは0だと登録できない。' do
         @item.condition_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Items status can't be blank")
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
 
       it 'shipping_date_idは0だと登録できない。' do
         @item.shipping_date_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Days to ship can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping date can't be blank")
       end
 
       it 'category_idは0だと登録できない。' do
@@ -141,7 +141,7 @@ RSpec.describe Item, type: :model do
       it 'shipment_area_idは0だと登録できない。' do
         @item.shipment_area_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@item.errors.full_messages).to include("Shipment area can't be blank")
       end
     end
   end
