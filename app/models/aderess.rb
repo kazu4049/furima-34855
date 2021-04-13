@@ -1,3 +1,3 @@
 class Aderess < ApplicationRecord
-  #belongs_to :order
+  #belongs_to :recoed
 end
