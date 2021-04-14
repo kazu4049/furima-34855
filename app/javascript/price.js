@@ -1,15 +1,13 @@
-window.addEventListener('load', function(){
+window.addEventListener('load', listPrice)
 
-  const priceInput = document.getElementById("item-price")
-  const salesCommission = document.getElementById("add-tax-price")
-  const salesProfit = document.getElementById("profit")
-  
-  priceInput.addEventListener("input", () => {
-    const inputValue = priceInput.value;
-    const value_result = Math.floor(inputValue * 0.1);
-    salesCommission.innerHTML = value_result
-    const result = Math.floor(inputValue * 0.9);
-    salesProfit.innerHTML = result
-  })
-  
+function listPrice(){
+  const price = document.getElementById('item-price');
+  price.addEventListener("keyup", () => {
+    const feeValue = Math.floor(price.value * 0.1)
+    const profitValue = price.value - feeValue;
+    const fee = document.getElementById('add-tax-price');
+    fee.innerHTML = feeValue;
+    const profit = document.getElementById('profit');
+    profit.innerHTML = profitValue;
   });
+}
