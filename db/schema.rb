@@ -37,18 +37,13 @@ ActiveRecord::Schema.define(version: 2021_04_12_072641) do
     t.string "postal_code", null: false
     t.integer "shipment_area_id", null: false
     t.string "city", null: false
-    t.string "address", null: false
+    t.string "house_number", null: false
     t.string "building_name"
     t.string "phone_number", null: false
     t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["record_id"], name: "index_aderesses_on_record_id"
-  end
-
-  create_table "condition_ids", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
