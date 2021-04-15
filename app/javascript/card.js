@@ -1,7 +1,6 @@
 window.addEventListener('load', pay);
 
 function pay(){
-  console.log('読み取りOK')
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const form = document.getElementById('charge-form');
   form.addEventListener('submit', (e) =>{
