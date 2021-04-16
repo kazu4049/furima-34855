@@ -74,3 +74,7 @@
 ### Association
 
 *belongs_to  :record
+
+## messages  テーブル
+|Column           |Type         |Options           |
+|-----------------|-------------|------------------|
